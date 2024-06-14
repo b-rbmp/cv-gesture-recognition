@@ -21,7 +21,6 @@
 
 ## Introduction <a name = "intro"></a>
 
-### Overview of the Project
 Gesture-controlled robots represent a fascinating intersection of robotics and human-computer interaction, leveraging the natural human ability to communicate through gestures. This project aims to develop a basic gesture-controlled robot that utilizes motion sensors to interpret hand movements and control the robot accordingly. Gesture-controlled robots are designed to function based on signals given through hand gestures, employing technologies such as accelerometers or image processing to detect and interpret these gestures​ (Roboversity, 2024; DelPreto & Rus, 2020). The robot can be used for various applications, such as interactive games or simple tasks, making it a versatile tool in both educational and recreational contexts.
 
 ### Importance and Applications of Gesture-Controlled Robots
