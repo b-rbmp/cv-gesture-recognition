@@ -66,8 +66,12 @@ The system architecture comprises three main components: the input module (webca
 **Process Video Feed**: The motion detection software analyzes the video feed to detect hand gestures.  
 **Generate Commands**: Based on the detected gestures, commands are generated and sent to the robot.  
 
-#### Capture Video Feed
-Gesture recognition technology involves interpreting human gestures via mathematical algorithms. These gestures can originate from any bodily motion but are commonly focused on hand movements.
+#### Gesture Recognition Technology
+HaGRID - HAnd Gesture Recognition Image Dataset
+We utilized the **HaGRID (HAnd Gesture Recognition Image Dataset)** to train our gesture recognition model. HaGRID is a comprehensive dataset containing 554,800 FullHD RGB images divided into 18 gesture classes and an additional no_gesture class for images with a second free hand. The dataset includes 723GB of data, with 410,800 images for training, 54,000 for validation, and 90,000 for testing, involving 37,583 unique individuals in various indoor lighting conditions. The subjects' ages range from 18 to 65, and the images were taken at distances of 0.5 to 4 meters from the camera, including extreme conditions like facing and backing to a window. 
+
+[The HaGRID library on GitHub](https://github.com/hukenovs/hagrid)
+
 In order to be able to recognize hand-gestures, we employed several techniques, including:
 
 _(Background Subtraction: Identifying moving objects in a video feed by subtracting the background.
