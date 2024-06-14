@@ -22,10 +22,16 @@
 ## Introduction <a name = "intro"></a>
 
 ### Overview of the Project
-Gesture-controlled robots represent a fascinating intersection of robotics and human-computer interaction, leveraging the natural human ability to communicate through gestures. This project aims to develop a basic gesture-controlled robot that utilizes motion sensors to interpret hand movements and control the robot accordingly. The robot can be used for various applications, such as interactive games or simple tasks, making it a versatile tool in both educational and recreational contexts.
+Gesture-controlled robots represent a fascinating intersection of robotics and human-computer interaction, leveraging the natural human ability to communicate through gestures. This project aims to develop a basic gesture-controlled robot that utilizes motion sensors to interpret hand movements and control the robot accordingly. Gesture-controlled robots are designed to function based on signals given through hand gestures, employing technologies such as accelerometers or image processing to detect and interpret these gestures​ (Roboversity, 2024; DelPreto & Rus, 2020). The robot can be used for various applications, such as interactive games or simple tasks, making it a versatile tool in both educational and recreational contexts.
 
 ### Importance and Applications of Gesture-Controlled Robots
-Gesture-controlled robots have a wide range of applications. In educational settings, they can be used to teach students about robotics and programming in an interactive manner. In gaming, they provide a more immersive and intuitive way to control characters or objects. Additionally, in scenarios requiring hands-free control, such as in assistive technologies for individuals with disabilities, gesture-controlled robots offer significant advantages.
+Gesture-controlled robots have a wide range of applications. In educational settings, they can be used to teach students about robotics and programming interactively, making learning more engaging and hands-on. By using gesture-based controls, students can see immediate, tangible results from their commands, fostering a deeper understanding of the principles of robotics and programming​​ (Roboversity, 2024).
+
+In gaming, gesture-controlled robots provide a more immersive and intuitive way to control characters or objects. This can lead to more interactive and engaging gaming experiences, where players use natural movements to interact with the game environment. Moreover, such technology can be used to develop new forms of interactive entertainment and educational tools that combine physical activity with digital content.
+
+Additionally, in scenarios requiring hands-free control, gesture-controlled robots offer significant advantages. For instance, in assistive technologies for individuals with disabilities, these robots can enable users to perform tasks that would otherwise be difficult or impossible. By interpreting simple hand gestures, these robots can assist with daily activities, providing greater independence and improving the quality of life for users.
+
+By leveraging the power of gesture recognition and human-computer interaction, gesture-controlled robots open up new possibilities across various fields, from education and entertainment to healthcare and assistive technology. These advancements underscore the potential of robotics to enhance human capabilities and interaction with technology.
 
 ## Project Description <a name = "project"></a>
 
@@ -86,3 +92,5 @@ _(Conclusions)_
 
 ## Demo <a name = "demo"></a>
 ## References <a name = "references"></a>
+Joseph DelPreto and Daniela Rus. 2020. Plug-and-Play Gesture Control Using Muscle and Motion Sensors. In Proceedings of the 2020 ACM/IEEE International Conference on Human-Robot Interaction (HRI ’20), March 23–26, 2020, Cambridge, United Kingdom. ACM, New York, NY, USA, 10 pages. https://doi.org/10.1145/3319502.3374823
+Roboversity. (n.d.). What is Gesture Based Robots? Retrieved from https://www.roboversity.com/resources/What-is-gesture-based-robots, access last 14/06/2024.
