@@ -13,7 +13,7 @@ Project for the Computer Vision 2023-2024 course at Sapienza
 + [Introduction](#intro)
 + [Project Description](#project)
 + [System Components](#architecture)
-+ [Design](#design)
++ [App/game](#app)
 + [Conclusions](#conclusion)
 + [Demo](#demo)
 + [References](#references)
@@ -35,19 +35,33 @@ The primary objective of this project is to develop a real-time gesture recognit
 ### Key Goals
 **Motion Detection**: Utilize a standard smartphone camera to capture hand movements and translate them into commands.  
 **Deep CNN Classification**: Implement a Deep Convolutional Neural Network (CNN) to classify hand gestures in real-time.
-**User-Friendly Interface**: Develop a simple and intuitive GUI that displays the live video and the game interface. 
-**Mobile Application**: Implement a mobile application that allows users to play the game using their smartphones.
 **Comparison of Models**: Compare the performance of different CNN models for gesture recognition, as well as the impact of data augmentation techniques.
+**Mobile Application**: Implement a simple and intuitive mobile application that allows users to play the game using their smartphones.
+
 
 ## System components <a name = "architecture"></a>
 
-### Software
-**Motion Detection Software**
-The core of the gesture control system is the motion detection software. This software processes the video feed from the webcam to identify and interpret hand gestures. _(talk about techniques for motion detection such as background subtraction, frame differencing, and optical flow)_
+### Model Architectures
+**VGG16**
+The VGG16 model is a convolutional neural network (CNN) consisting of 13 convolutional layers followed by 3 fully connected layers. This architecture is known for its simplicity and uniformity in the size of the convolution filters. The network has five max-pooling layers and three dense layers at the end, which transition from feature extraction to classification.
 
-**GUI**
+**MobileNetV3 Architecture**
+The MobileNetV3 model is designed for mobile and edge device applications, emphasizing efficiency and performance. This model utilizes a combination of depthwise separable convolutions and squeeze-and-excitation modules to reduce computation while maintaining accuracy. The specific implementation modifies the classifier to adjust to the number of classes in the dataset.
 
-## Design <a name = "design"></a>
+### Training Components
+
+We use **Adam optimizer** with a learning rate of 1e-5, chosen for its ability to handle sparse gradients and its efficiency in computation, and we employ **CrossEntropyLoss**, suitable for multi-class classification tasks.
+A linear learning rate scheduler (**LinearLR**) adjusts the learning rate from an initial factor of 1.0 to an end factor of 0.3 over 40 iterations. This helps in gradually reducing the learning rate to fine-tune the model during training.
+An instance of SaveModelWithBestValLoss is used to save the model with the **best validation loss**. This ensures that the best performing model on the validation set is preserved.
+
+
+### Training loop
+
+The training loop runs for up to 40 epochs, with each epoch consisting of a training and validation phase. During the training phase, the model is set to training mode. For each batch, inputs and labels are processed, and the loss is computed and backpropagated. The optimizer steps are taken, and the learning rate is updated. The training loss is accumulated and averaged at the end of each epoch.
+
+During the validation phase, the model is set to evaluation mode. No gradient computations are performed. The validation loss is accumulated and averaged. If the validation loss does not improve over three consecutive epochs, early stopping is triggered to prevent overfitting.
+
+## App/game <a name = "app"></a>
 
 
 
@@ -58,10 +72,24 @@ The core of the gesture control system is the motion detection software. This so
 _(For example: challenges in gesture recognition include variability in lighting conditions, background noise, and differences in individual hand shapes and sizes. Robust algorithms and pre-processing steps are necessary to ensure accurate detection and interpretation.)_  
 
 ### Metrics and results
-_(Provide some numbers in order to be able to conclude something)_
+The performance of the models was evaluated using accuracy, precision, recall, and F1 score. Various configurations were tested, including different amounts of training data, use of data augmentation, and different model architectures.
+
+| Model Configuration                                             | Accuracy      | Precision     | Recall        | F1 Score      |
+|-----------------------------------------------------------------|---------------|---------------|---------------|---------------|
+| MobileNetV3 with Data Augmentation (Full Dataset)               | 0.9952        | 0.9952        | 0.9952        | 0.9952        |
+| MobileNetV3 with Data Augmentation (20% Train, 10% Test)        | 0.9754        | 0.9755        | 0.9754        | 0.9754        |
+| MobileNetV3 without Data Augmentation (20% Train, 10% Test)     | 0.9771        | 0.9771        | 0.9771        | 0.9771        |
+| ResNet50 with Data Augmentation (20% Train, 10% Test)           | 0.9900        | 0.9900        | 0.9900        | 0.9900        |
+| ResNet50 without Data Augmentation (20% Train, 10% Test)           | 0.9861        | 0.9861        | 0.9861        | 0.9861        |
+| Hand Segmentation (Frozen) + MobileNetV3 without Data Augmentation | 0.9658    | 0.9660        | 0.9658        | 0.9658        |
+| Simple CNN Model without Data Augmentation (20% Train, 10% Test)| 0.6630        | 0.6619        | 0.6630        | 0.6590        |
+| Hand Segmentation (Unfrozen) + MobileNetV3 without Data Augmentation | 0.9708    | 0.9710        | 0.9708        | 0.9708        |
+
 
 ### Discussion
-_(Conclusions)_
+The MobileNetV3 model, especially with data augmentation, demonstrated superior performance in terms of accuracy, precision, recall, and F1 score. ResNet50 also performed well, indicating its robustness. Simple CNN models showed significantly lower performance, highlighting the importance of advanced architectures and data augmentation in achieving high accuracy in classification tasks.
+
+This detailed analysis provides insights into the effectiveness of different model architectures and training strategies, guiding future efforts in model selection and training methodologies for optimal performance.
 
 ## Demo <a name = "demo"></a>
 
