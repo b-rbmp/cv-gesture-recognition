@@ -78,12 +78,13 @@ The performance of the models was evaluated using accuracy, precision, recall, a
 |-----------------------------------------------------------------|---------------|---------------|---------------|---------------|
 | MobileNetV3 with Data Augmentation (Full Dataset)               | 0.9952        | 0.9952        | 0.9952        | 0.9952        |
 | MobileNetV3 with Data Augmentation (20% Train, 10% Test)        | 0.9754        | 0.9755        | 0.9754        | 0.9754        |
-| MobileNetV3 without Data Augmentation (20% Train, 10% Test)     | 0.9771        | 0.9771        | 0.9771        | 0.9771        |
-| ResNet50 with Data Augmentation (20% Train, 10% Test)           | 0.9900        | 0.9900        | 0.9900        | 0.9900        |
-| ResNet50 without Data Augmentation (20% Train, 10% Test)           | 0.9861        | 0.9861        | 0.9861        | 0.9861        |
-| Hand Segmentation (Frozen) + MobileNetV3 without Data Augmentation | 0.9658    | 0.9660        | 0.9658        | 0.9658        |
-| Simple CNN Model without Data Augmentation (20% Train, 10% Test)| 0.6630        | 0.6619        | 0.6630        | 0.6590        |
-| Hand Segmentation (Unfrozen) + MobileNetV3 without Data Augmentation | 0.9708    | 0.9710        | 0.9708        | 0.9708        |
+| MobileNetV3 without Data Augmentation (20% Train, 10% Test)     | 0.9699        | 0.9700        | 0.9699        | 0.9699        |
+| ResNet50 with Data Augmentation (20% Train, 10% Test)           | 0.9864        | 0.9865        | 0.9864        | 0.9864        |
+| ResNet50 without Data Augmentation (20% Train, 10% Test)           | 0.9861        | 0.9660        | 0.9861        | 0.9861        |
+| Hand Segmentation (Frozen) + MobileNetV3 without Data Augmentation | 0.9657    | 0.9660        | 0.9657        | 0.9657        |
+| Hand Segmentation (Unfrozen) + MobileNetV3 without Data Augmentation | 0.9478    | 0.9483        | 0.9478        | 0.9477        |
+| Simple CNN Model without Data Augmentation (20% Train, 10% Test)| 0.6137        | 0.6122        | 0.6137        | 0.6103        |
+
 
 
 ### Discussion
