@@ -183,7 +183,7 @@ The mobile conversion script can be found [here](mobile_converter/convert_mobile
 
 The mobile application was developed using React Native, a popular framework for building cross-platform mobile applications. The application allows users to play Rock-Paper-Scissors against the computer using hand gestures captured by the smartphone's camera. The application uses the TensorFlow Lite model to recognize the gestures in real-time and determine the winner of each round. The conversion between the model's predicted class and the Rock-Paper-Scissors gestures is done in the same way as in the desktop game, as seen in the previous section.
 
-The source code for the mobile application can be found [in this folder](android_app), while the APK file for testing on your device can be downloaded [here](https://www.dropbox.com/scl/fo/idxhyvq3x1l6byuoyyccc/AGBlFAYwfz7J5W_KJnmMFog?rlkey=zbkhssl8974cv6t2u5493p5pz&st=zdeq257y&dl=0). Note that the app was tested in a Google Pixel 8 and the performance will vary depending on the device's camera quality and processing power.
+The source code for the mobile application can be found [in this folder](android_app), while the APK file for testing on your device can be downloaded [here](https://www.dropbox.com/scl/fi/uuroqkx4butv96knyu94x/cv_app.apk?rlkey=al9ykmmoad3cijuiwq15wx1g3&st=0b65mcop&dl=0). Note that the app was tested in a Google Pixel 8 and the performance will vary depending on the device's camera quality and processing power.
 
 An image of the mobile app interface can be seen below: 
 
@@ -224,7 +224,7 @@ Despite being the best performing model, we found that the ResNet50 model was to
 
 ### Final Model for Mobile App: MobileNetV3 Large with Data Augmentation
 
-The MobileNetV3 Large model was trained with data augmentation on the full dataset to evaluate its performance on the complete dataset. The model achieved an accuracy of 0.9699, precision of 0.97, recall of 0.9699, and an F1 score of 0.9699. The model was then converted to a TensorFlow Lite model for deployment in the mobile application, and is used in the .apk file provided for testing sucessfully on a Google Pixel 8, without performance issues.
+The MobileNetV3 Large model was trained with data augmentation on the full dataset to evaluate its performance on the complete dataset. The model achieved an accuracy of 0.9887, precision of 0.9887, recall of 0.9887, and an F1 score of 0.9887. The model was then converted to a TensorFlow Lite model for deployment in the mobile application, and is used in the .apk file provided for testing sucessfully on a Google Pixel 8, without performance issues.
 
 The evolution of the Training and Validation Loss per epoch can be seen below:
 
