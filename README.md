@@ -171,6 +171,8 @@ An image of the game can be seen below:
 
 ![Desktop Rock Paper Scissors Game](docs/images/desktop_game.jpg)
 
+The code for the desktop game can be found [here](game/game.py).
+
 ## Conversion to TF Lite Model <a name = "tflite"></a>
 
 In order to port the model to a mobile application, we converted the trained PyTorch model to a TensorFlow Lite model. The conversion process was done using Google's [Ai Edge Torch](https://github.com/google-ai-edge/ai-edge-torch) library, which provides a simple tool to convert PyTorch models to TensorFlow Lite models by passing the PyTorch model and a sample input tensor.
