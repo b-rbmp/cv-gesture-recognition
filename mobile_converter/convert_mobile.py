@@ -13,6 +13,7 @@ import ai_edge_torch
 
 # Define the model folder 
 MODEL_FOLDER = "./mobile_converter"
+MODEL_TYPE = "mobilenetv3" # Choose between "resnet50" and "mobilenetv3"
 
 # Use GPU if available
 torch.cuda.empty_cache()
@@ -22,20 +23,24 @@ print(device)
 with open(MODEL_FOLDER + "/labelencoder.pkl", "rb") as le_dump_file:
     label_encoder: LabelEncoder = pickle.load(le_dump_file)
 
-# Generate the MobileNetV3 model
+# Generate the Model based on the model type
 def generate_model(num_classes: int):
-  model=models.mobilenet_v3_large(pretrained=True)
-  num_features=model.classifier[0].in_features
-  model.classifier=nn.Sequential(
-      nn.Linear(in_features=num_features, out_features=4096, bias=True),
-      nn.ReLU(inplace=True),
-      nn.Dropout(p=0.5, inplace=False),
-      nn.Linear(in_features=4096, out_features=4096, bias=True),
-      nn.ReLU(inplace=True),
-      nn.Dropout(p=0.5, inplace=False),
-      nn.Linear(in_features=4096, out_features=num_classes, bias=True)
-    )
-  
+  if MODEL_TYPE == "resnet50":
+    model = models.resnet50(pretrained=True)
+    model.fc = nn.Linear(model.fc.in_features, num_classes)
+  elif MODEL_TYPE == "mobilenetv3":
+    model=models.mobilenet_v3_large(pretrained=True)
+    num_features=model.classifier[0].in_features
+    model.classifier=nn.Sequential(
+        nn.Linear(in_features=num_features, out_features=4096, bias=True),
+        nn.ReLU(inplace=True),
+        nn.Dropout(p=0.5, inplace=False),
+        nn.Linear(in_features=4096, out_features=4096, bias=True),
+        nn.ReLU(inplace=True),
+        nn.Dropout(p=0.5, inplace=False),
+        nn.Linear(in_features=4096, out_features=num_classes, bias=True)
+      )
+    
   return model
 
 

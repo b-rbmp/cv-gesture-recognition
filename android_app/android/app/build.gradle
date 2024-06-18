@@ -83,9 +83,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.anonymous.android_app'
+    namespace 'com.cv_app.cv_app'
     defaultConfig {
-        applicationId 'com.anonymous.android_app'
+        applicationId 'com.cv_app.cv_app'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

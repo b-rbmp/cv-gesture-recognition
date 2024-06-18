@@ -1,4 +1,4 @@
-package com.anonymous.android_app
+package com.cv_app.cv_app
 
 import android.app.Application
 import android.content.res.Configuration

@@ -21,24 +21,29 @@ print(f"Using device: {device}")
 
 # Load the label encoder from pickle file
 import pickle
-MODEL_FOLDER = ".\\mobilenetv3"
+MODEL_FOLDER = ".\\resnet50"
+MODEL_TYPE = "resnet50" # Change to "mobilenetv3" to use MobileNetV3 Large model
 with open(MODEL_FOLDER + "\\labelencoder.pkl", "rb") as le_dump_file:
     label_encoder: LabelEncoder = pickle.load(le_dump_file)
 
-# Generate the Model
+# Generate the model based on the model type
 def generate_model(num_classes: int):
-  model=models.mobilenet_v3_large(pretrained=True)
-  num_features=model.classifier[0].in_features
-  model.classifier=nn.Sequential(
-      nn.Linear(in_features=num_features, out_features=4096, bias=True),
-      nn.ReLU(inplace=True),
-      nn.Dropout(p=0.5, inplace=False),
-      nn.Linear(in_features=4096, out_features=4096, bias=True),
-      nn.ReLU(inplace=True),
-      nn.Dropout(p=0.5, inplace=False),
-      nn.Linear(in_features=4096, out_features=num_classes, bias=True)
-    )
-  
+  if MODEL_TYPE == "resnet50":
+    model = models.resnet50(pretrained=True)
+    model.fc = nn.Linear(model.fc.in_features, num_classes)
+  elif MODEL_TYPE == "mobilenetv3":
+    model=models.mobilenet_v3_large(pretrained=True)
+    num_features=model.classifier[0].in_features
+    model.classifier=nn.Sequential(
+        nn.Linear(in_features=num_features, out_features=4096, bias=True),
+        nn.ReLU(inplace=True),
+        nn.Dropout(p=0.5, inplace=False),
+        nn.Linear(in_features=4096, out_features=4096, bias=True),
+        nn.ReLU(inplace=True),
+        nn.Dropout(p=0.5, inplace=False),
+        nn.Linear(in_features=4096, out_features=num_classes, bias=True)
+      )
+    
   return model
 
 # Function that allows for one prediction to be made for a single image using the trained model
@@ -61,7 +66,7 @@ def predict_single_image(model, image, label_encoder):
 # build the model, without loading the pre-trained weights or fine-tune layers
 saved_model = generate_model(len(label_encoder.classes_))
 saved_model.to(device)
-best_model = torch.load(MODEL_FOLDER + '\\best_model.pth')
+best_model = torch.load(MODEL_FOLDER + '\\best_model_FINAL.pth')
 saved_model.load_state_dict(best_model['model_state_dict'])
 
 # Use camera to continuously predict the image

@@ -1,4 +1,4 @@
-rootProject.name = 'android_app'
+rootProject.name = 'cv_app'
 
 dependencyResolutionManagement {
   versionCatalogs {
