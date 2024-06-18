@@ -8,13 +8,17 @@ Project for the Computer Vision 2023-2024 course at Sapienza
 | `Bernardo Perrone De Menezes Bulcao Ribeiro ` | [![name](https://github.com/b-rbmp/NexxGate/blob/main/docs/logos/linkedin.png)](https://www.linkedin.com/in/b-rbmp/) | [![name](https://github.com/b-rbmp/NexxGate/blob/main/docs/logos/github.png)](https://github.com/b-rbmp) |
 | `Roberta Chissich ` | [![name](https://github.com/b-rbmp/NexxGate/blob/main/docs/logos/linkedin.png)](https://www.linkedin.com/in/roberta-chissich/) | [![name](https://github.com/b-rbmp/NexxGate/blob/main/docs/logos/github.png)](https://github.com/RobCTs) |
 
+## Overview
+Hand Gesture Recognition is a technology that enables computers to interpret human gestures as commands, with applications ranging from robotics and gaming to assistive technologies and human-computer interaction. This project focuses on creating a real-time gesture recognition system to play Rock-Paper-Scissors against a computer.
 
 ## Table of Contents
 + [Introduction](#intro)
 + [Project Description](#project)
-+ [System Components](#architecture)
-+ [App/game](#app)
-+ [Conclusions](#conclusion)
++ [System Architecture](#architecture)
++ [Implementation](#implementation)
++ [Application](#app)
++ [Evaluation and Results](#evaluation)
++ [Discussion](#aconclusion)
 + [Demo](#demo)
 + [References](#references)
 
@@ -30,23 +34,40 @@ One of the main applications of Hand Gesture Recognition is Human-Robot Interact
 ## Project Description <a name = "project"></a>
 
 ### Objective
-The primary objective of this project is to develop a real-time gesture recognition system that allows users to play a game of Rock-Paper-Scissors against a computer. The system will capture live video feeds of the user's hand gestures using a camera, analyze the movements to recognize the gestures using Deep Convolutional Neural Networks framed as a classification task, and translate them into commands to play the game. The computer will generate its own gestures randomly, and the system will determine the winner based on the rules of the game.
+The primary objective of this project is to develop a real-time gesture recognition system that allows users to play a game of Rock-Paper-Scissors against a computer. The system captures live video feeds of the user's hand gestures using the camera, analyzes the movements to recognize the gestures using Deep Convolutional Neural Networks framed as a classification task, and translate them into commands to play the game. The computer will generate its own gestures randomly, and the system will determine the winner based on the rules of the game.
 
 ### Key Goals
-**Motion Detection**: Utilize a standard smartphone camera to capture hand movements and translate them into commands.  
+**Motion Detection**: Utilize a standard smartphone/laptop camera to capture hand movements and translate them into commands.  
 **Deep CNN Classification**: Implement a Deep Convolutional Neural Network (CNN) to classify hand gestures in real-time.
 **Comparison of Models**: Compare the performance of different CNN models for gesture recognition, as well as the impact of data augmentation techniques.
 **Mobile Application**: Implement a simple and intuitive mobile application that allows users to play the game using their smartphones.
 
 
-## System components <a name = "architecture"></a>
+## System Architecture <a name = "architecture"></a>
 
-### Model Architectures
+The system architecture for our hand gesture recognition project is designed to efficiently capture, process, and classify hand gestures in real-time. At a high level, the system comprises a data acquisition module, a pre-processing unit, a gesture recognition module powered by deep learning models, and an output module that interprets the recognized gestures into game commands for playing Rock-Paper-Scissors. The architecture leverages advanced neural network models and robust training methodologies to ensure high accuracy and responsiveness.
+
+### Data Acquisition
+The data acquisition module is responsible for capturing live video feeds of the user's hand gestures. This is typically done using a standard smartphone camera, which provides the necessary input data for further processing. The module ensures that the video feed is of sufficient quality and resolution to allow accurate gesture recognition.
+
+### Pre-Processing Unit
+Once the raw video data is captured, it undergoes a series of pre-processing steps. These steps include resizing the video frames, normalizing pixel values, and applying data augmentation techniques such as rotation, scaling, and flipping. Pre-processing is crucial for enhancing the robustness of the gesture recognition system by making the model invariant to various transformations and lighting conditions.
+
+### Gesture Recognition Module
+The core of the system is the gesture recognition module, which employs deep convolutional neural networks (CNNs) to classify hand gestures. We explored multiple model architectures for this purpose:
+
 **VGG16**
 The VGG16 model is a convolutional neural network (CNN) consisting of 13 convolutional layers followed by 3 fully connected layers. This architecture is known for its simplicity and uniformity in the size of the convolution filters. The network has five max-pooling layers and three dense layers at the end, which transition from feature extraction to classification.
 
-**MobileNetV3 Architecture**
+**MobileNetV3**
 The MobileNetV3 model is designed for mobile and edge device applications, emphasizing efficiency and performance. This model utilizes a combination of depthwise separable convolutions and squeeze-and-excitation modules to reduce computation while maintaining accuracy. The specific implementation modifies the classifier to adjust to the number of classes in the dataset.
+
+**ResNet50**
+The ResNet50 model, part of the Residual Networks (ResNet) family, is particularly well-suited for deep learning tasks due to its unique architecture that includes residual blocks. These blocks allow the model to learn identity mappings, which help in training very deep networks by mitigating the vanishing gradient problem. ResNet50 has 50 layers, making it a robust choice for capturing complex patterns in gesture recognition. Its performance is further enhanced by data augmentation techniques, leading to high accuracy and generalization.
+
+The models are trianed using **HaGRID (HAnd Gesture Recognition Image Dataset)**. HaGRID is a comprehensive dataset containing 554,800 FullHD RGB images divided into 18 gesture classes and an additional no_gesture class for images with a second free hand. The dataset includes 723GB of data, with 410,800 images for training, 54,000 for validation, and 90,000 for testing, involving 37,583 unique individuals in various indoor lighting conditions. The subjects' ages range from 18 to 65, and the images were taken at distances of 0.5 to 4 meters from the camera, including extreme conditions like facing and backing to a window. 
+
+[The HaGRID library on GitHub](https://github.com/hukenovs/hagrid)
 
 ### Training Components
 
@@ -61,15 +82,14 @@ The training loop runs for up to 40 epochs, with each epoch consisting of a trai
 
 During the validation phase, the model is set to evaluation mode. No gradient computations are performed. The validation loss is accumulated and averaged. If the validation loss does not improve over three consecutive epochs, early stopping is triggered to prevent overfitting.
 
-## App/game <a name = "app"></a>
+### Output Module
+The output module interprets the recognized gestures and translates them into commands for the Rock-Paper-Scissors game. The system determines the winner based on the recognized gestures of the user and the randomly generated gestures of the computer, providing real-time feedback to the user.
+
+## Application <a name = "app"></a>
 
 
 
-## Conclusions <a name = "conclusion"></a>
-
-
-### Challenges
-_(For example: challenges in gesture recognition include variability in lighting conditions, background noise, and differences in individual hand shapes and sizes. Robust algorithms and pre-processing steps are necessary to ensure accurate detection and interpretation.)_  
+## Evaluation and Results <a name = "evaluation"></a>
 
 ### Comparison of All Models Without Augmented Data
 The performance of the models without data augmentation was evaluated using accuracy, precision, recall, and F1 score. Then nalyzed to understand the baseline capabilities of each architecture. The results show a notable difference in performance:
@@ -94,6 +114,9 @@ To further understand the impact of data augmentation, we compared the ResNet50 
 | ResNet50 without Data Augmentation (20% Train, 10% Test)           | 0.9846        | 0.9847        | 0.9846        | 0.9846        |
 
 The results indicate that while the ResNet50 model performs exceptionally well without data augmentation, applying data augmentation slightly enhances its precision, ensuring a more balanced and generalized performance. The marginal improvement suggests that ResNet50 is highly effective in recognizing gestures even with a limited amount of training data, but data augmentation can still provide an edge in terms of precision.
+
+### Challenges
+_(For example: challenges in gesture recognition include variability in lighting conditions, background noise, and differences in individual hand shapes and sizes. Robust algorithms and pre-processing steps are necessary to ensure accurate detection and interpretation.)_  
 
 ### Discussion
 The performance analysis of various models in this project highlights the significant impact of advanced architectures and data augmentation on the accuracy and robustness of hand gesture recognition systems.
