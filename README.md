@@ -15,10 +15,9 @@ Hand Gesture Recognition is a technology that enables computers to interpret hum
 + [Introduction](#intro)
 + [Project Description](#project)
 + [System Architecture](#architecture)
-+ [Implementation](#implementation)
 + [Application](#app)
 + [Evaluation and Results](#evaluation)
-+ [Discussion](#aconclusion)
++ [Discussion](#conclusion)
 + [Demo](#demo)
 + [References](#references)
 
@@ -118,7 +117,7 @@ The results indicate that while the ResNet50 model performs exceptionally well w
 ### Challenges
 _(For example: challenges in gesture recognition include variability in lighting conditions, background noise, and differences in individual hand shapes and sizes. Robust algorithms and pre-processing steps are necessary to ensure accurate detection and interpretation.)_  
 
-### Discussion
+### Discussion <a name = "conclusion"></a>
 The performance analysis of various models in this project highlights the significant impact of advanced architectures and data augmentation on the accuracy and robustness of hand gesture recognition systems.
 
 The ResNet50 model demonstrates high performance both with and without data augmentation. When trained with data augmentation on 20% of the training set and tested on 10% of the test set, ResNet50 achieved an accuracy of 98.64%, precision of 98.65%, recall of 98.64%, and an F1 score of 98.64%. Without data augmentation, the ResNet50 model showed a marginally lower accuracy of 98.61%, precision of 96.60%, recall of 98.61%, and an F1 score of 98.61%. The slight improvement in precision with data augmentation suggests enhanced model robustness and generalization, making it better suited for real-world variations in hand gestures.
