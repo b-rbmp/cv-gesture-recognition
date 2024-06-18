@@ -31,12 +31,12 @@ Hand Gesture Recognition is a technology that enables computers to interpret hum
 
 ### Importance and Applications 
 
-One of the main applications of Hand Gesture Recognition is Human-Robot Interaction and Human Computer Interaction. By using hand gestures as commands, users can control robots, computers, and other devices in a more intuitive and natural way. This technology is particularly useful in scenarios where traditional input devices like keyboards and mice are not practical or feasible, such as in robotics, virtual reality, and augmented reality applications. Hand Gesture Recognition can also be used in healthcare, gaming, and security applications, among others.
+One of the main applications of Hand Gesture Recognition is Human-Robot Interaction and Human-Computer Interaction.. By using hand gestures as commands, users can control robots, computers, and other devices in a more intuitive and natural way. This technology is particularly useful in scenarios where traditional input devices like keyboards and mice are not practical or feasible, such as in robotics, virtual reality, and augmented reality applications. Hand Gesture Recognition can also be used in healthcare, gaming, and security applications, among others.
 
 ## Project Description <a name = "project"></a>
 
 ### Objective
-The primary objective of this project is to develop a real-time gesture recognition system that allows users to play a game of Rock-Paper-Scissors against a computer. The system will capture live video feeds of the user's hand gestures using a camera, analyze the movements to recognize the gestures using Deep Convolutional Neural Networks framed as a classification task, and translate them into commands to play the game. The computer will generate its own gestures randomly, and the system will determine the winner based on the rules of the game.
+The primary objective of this project is to develop a real-time gesture recognition system that allows users to play a game of Rock-Paper-Scissors against a computer. The system will capture live video feeds of the user's hand gestures using a camera, analyze the movements to recognize the gestures using Deep Convolutional Neural Networks framed as a classification task, and translate them into commands to play the game. The computer will generate its gestures randomly, and the system will determine the winner based on the game's rules..
 
 ### Key Goals
 - **Motion Detection**: Utilize a standard smartphone camera to capture hand movements and translate them into commands.  
@@ -48,7 +48,7 @@ The primary objective of this project is to develop a real-time gesture recognit
 
 ### Dataset
 
-The dataset used for training the gesture recognition models is an adapted version of the HaGRID dataset, containing 153,735 training images from HaGRID (Hand Gesture Recognition Image Dataset) [1] modified for image classification instead of object detection. The dataset contains images of Hand Gestures being performed by different individuals under various lighting conditions and backgrounds. There are 19 labelled classes corresponding to different hand gestures, containing around 6900 images per class. The possible labels can be seen below:
+The dataset used for training the gesture recognition models is an adapted version of the HaGRID dataset, containing 153,735 images from HaGRID (Hand Gesture Recognition Image Dataset). [1] modified for image classification instead of object detection. The dataset contains images of Hand Gestures being performed by different individuals under various lighting conditions and backgrounds. There are 19 labelled classes corresponding to different hand gestures, containing around 6900 images per class. The possible labels can be seen below:
 
 Gesture Classes:
 
@@ -61,7 +61,7 @@ The dataset can be downloaded from the following link: [Hagrid Dataset for Class
 
 The first step in the project is to preprocess and augment the dataset. This is done in the following Jupyter Notebook: [Data Preprocessing and Augmentation](https://github.com/b-rbmp/cv-gesture-recognition/blob/main/preprocessing/data_preprocessing.ipynb). It is divided into two main sections: Data Preprocessing and Data Augmentation.
 
-**Data Preprocessing**: The data preprocessing step involves loading the full dataset and separating the data into two sets: training-validation and test. The training-validation set is further split into training and validation sets in the training scripts. This is done because the training-validation set is going to be augmented, while the test set is going to be used to evaluate the models' performance.
+**Data Preprocessing**: The data preprocessing step involves loading the full dataset and separating the data into two sets: training-validation and test. The training-validation set is further divided into training and validation sets within the training scripts. This is done because the training-validation set is going to be augmented, while the test set is going to be used to evaluate the models' performance.
 
 **Data Augmentation**: The data augmentation step involves applying various transformations to the training-validation set to increase the dataset's size and diversity. The transformations include:
 - Horizontal Flip
@@ -85,7 +85,7 @@ For this project, we implemented and compared the following model architectures 
 
 #### **1. Simple CNN Model**
 
-To serve as a baseline for more complex and/or powerful pretrained models, we implemented a simple CNN model for hand gesture recognition. It is divided in a feature extraction part and a classification part. The feature extraction part of the model consists of 5 convolutional blocks. Each block includes:
+To serve as a baseline for more complex and/or powerful pretrained models, we implemented a simple CNN model for hand gesture recognition. It is divided into a feature extraction part and a classification part. The feature extraction part of the model consists of 5 convolutional blocks. Each block includes:
 - Convolutional Layer: Applies a convolution operation with a specific number of filters, kernel size, stride, and padding.
 - ReLU Activation: Applies the ReLU activation function.
 - Max Pooling Layer: Applies a max pooling operation to reduce the spatial dimensions.
@@ -140,7 +140,7 @@ For all the architectures, a CustomDataset is created to load and preprocess the
 
 ### Training Components
 
-We use **Adam optimizer** chosen for its ability to handle sparse gradients and its efficiency in computation, with a Linear Learning Rate Scheduler, starting from 1e-5, and we employ **CrossEntropyLoss**, suitable for multi-class classification tasks.
+We use **Adam optimizer** chosen for its ability to handle sparse gradients and its efficiency in computation, along with a Linear Learning Rate Scheduler, starting from 1e-5, and we also employ **CrossEntropyLoss**, suitable for multi-class classification tasks.
 A linear learning rate scheduler (**LinearLR**) adjusts the learning rate from an initial factor of 1.0 to an end factor of 0.3 over 40 iterations. This helps in gradually reducing the learning rate to fine-tune the model during training.
 A class **SaveModelWithBestValLoss** is created and used to save the model with the best validation loss. This ensures that the best performing model on the validation set is preserved. The model is saved as a `.pth` file, which can be loaded for inference or further training.
 
@@ -153,7 +153,7 @@ During the validation phase, the model is set to evaluation mode. No gradient co
 
 ### Testing
 
-After training, the best model is loaded and tested on the test set. The test set is loaded and preprocessed similarly to the training and validation sets. The model is evaluated on the test set using accuracy, precision, recall, and F1 score metrics. Also, a classification report is generated to analyze these results for each class. The results are displayed and saved for further analysis. 
+After training, the best model is loaded and tested on the test set. The test set is loaded and preprocessed similarly to the training and validation sets are. The model is evaluated on the test set using accuracy, precision, recall, and F1 score metrics. Also, a classification report is generated to analyze these results for each class. The results are displayed and saved for further analysis. 
 
 ## Desktop Game <a name = "game"></a>
 
@@ -181,7 +181,7 @@ The mobile conversion script can be found [here](mobile_converter/convert_mobile
 
 ## Mobile App <a name = "app"></a>
 
-The mobile application was developed using React Native, a popular framework for building cross-platform mobile applications. The application allows users to play Rock-Paper-Scissors against the computer using hand gestures captured by the smartphone's camera. The application uses the TensorFlow Lite model to recognize the gestures in real-time and determine the winner of each round. The conversion between the model's predicted class and the Rock-Paper-Scissors gestures is done in the same way as in the desktop game, seen in the previous section.
+The mobile application was developed using React Native, a popular framework for building cross-platform mobile applications. The application allows users to play Rock-Paper-Scissors against the computer using hand gestures captured by the smartphone's camera. The application uses the TensorFlow Lite model to recognize the gestures in real-time and determine the winner of each round. The conversion between the model's predicted class and the Rock-Paper-Scissors gestures is done in the same way as in the desktop game, as seen in the previous section.
 
 The source code for the mobile application can be found [in this folder](android_app), while the APK file for testing on your device can be downloaded [here](https://www.dropbox.com/scl/fo/idxhyvq3x1l6byuoyyccc/AGBlFAYwfz7J5W_KJnmMFog?rlkey=zbkhssl8974cv6t2u5493p5pz&st=zdeq257y&dl=0). Note that the app was tested in a Google Pixel 8 and the performance will vary depending on the device's camera quality and processing power.
 
@@ -195,7 +195,7 @@ Due to the computational resources available and big size of the dataset, all ar
 
 ### Comparison of All Models Without Augmented Data
 
-The performance of the models without data augmentation was evaluated using accuracy, precision, recall, and F1 score. Then analyzed to understand the baseline capabilities of each architecture. The results show a notable difference in performance:
+The performance of the models without data augmentation was evaluated using accuracy, precision, recall, and F1 score. These results are then analyzed to understand the baseline capabilities of each architecture. The results show a notable difference in performance:
 
 | Model Configuration                                             | Accuracy      | Precision     | Recall        | F1 Score      |
 |-----------------------------------------------------------------|---------------|---------------|---------------|---------------|
@@ -239,7 +239,7 @@ The F1 score per class can be seen below:
 ### Discussion
 The performance analysis of various models in this project highlights the significant impact of advanced architectures and data augmentation on the accuracy and robustness of hand gesture recognition systems. The comparison of models showed that more complex models like ResNet50 and MobileNetV3 outperformed simpler CNN models, achieving higher accuracy and precision. The results also demonstrated the importance of data augmentation in enhancing the model's performance, especially in cases where the dataset is limited or imbalanced.
 
-The development of the desktop game and mobile application showcased the real-time capabilities of gesture recognition systems and their potential applications in human-computer interaction and gaming. The desktop game allowed users to play Rock-Paper-Scissors against the computer using hand gestures, while the mobile application enabled users to interact with the system using their smartphones. The conversion of the model to a TensorFlow Lite model facilitated deployment on mobile devices, ensuring efficient and lightweight performance.
+The development of The desktop game and mobile application showcase the real-time capabilities of gesture recognition systems and their potential applications in human-computer interaction and gaming. The desktop game allowed users to play Rock-Paper-Scissors against the computer using hand gestures, while the mobile application enabled users to interact with the system using their smartphones. The conversion of the model to a TensorFlow Lite model facilitated deployment on mobile devices, ensuring efficient and lightweight performance.
 
 ### Limitations and Future Work
 Despite the successful implementation of the gesture recognition system, there are several limitations and areas for future work:
@@ -255,10 +255,10 @@ Despite the successful implementation of the gesture recognition system, there a
 
 ## References <a name = "references"></a>
 
-[1] Alexander Kapitanov et Al. Original HaGRID Dataset https://github.com/hukenovs/hagrid
+[1] Alexander Kapitanov et al. Original HaGRID Dataset https://github.com/hukenovs/hagrid
 
 [2] Christian Mills. Adapted HaGRID Dataset https://huggingface.co/datasets/cj-mills/hagrid-classification-512p-no-gesture-150k-zip
 
-[3] Valerio Ponzi et Al. A Real-time Hand Gesture Recognition System for Human-Computer and Human-Robot Interaction https://hdl.handle.net/11573/1683653
+[3] Valerio Ponzi et al. A Real-time Hand Gesture Recognition System for Human-Computer and Human-Robot Interaction https://hdl.handle.net/11573/1683653
 
 [4] Guglielmo Camporese. Hands Segmentation is All You Need https://github.com/guglielmocamporese/hands-segmentation-pytorch
