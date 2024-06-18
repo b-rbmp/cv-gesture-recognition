@@ -8,8 +8,6 @@ Project for the Computer Vision 2023-2024 course at Sapienza
 | `Bernardo Perrone De Menezes Bulcao Ribeiro ` | [![name](https://github.com/b-rbmp/NexxGate/blob/main/docs/logos/linkedin.png)](https://www.linkedin.com/in/b-rbmp/) | [![name](https://github.com/b-rbmp/NexxGate/blob/main/docs/logos/github.png)](https://github.com/b-rbmp) |
 | `Roberta Chissich ` | [![name](https://github.com/b-rbmp/NexxGate/blob/main/docs/logos/linkedin.png)](https://www.linkedin.com/in/roberta-chissich/) | [![name](https://github.com/b-rbmp/NexxGate/blob/main/docs/logos/github.png)](https://github.com/RobCTs) |
 
-## Overview
-Hand Gesture Recognition is a technology that enables computers to interpret human gestures as commands, with applications ranging from robotics and gaming to assistive technologies and human-computer interaction. This project focuses on creating a real-time gesture recognition system to play Rock-Paper-Scissors against a computer.
 
 ## Table of Contents
 + [Abstract](#abstract)
