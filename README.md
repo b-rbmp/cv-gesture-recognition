@@ -48,13 +48,13 @@ The primary objective of this project is to develop a real-time gesture recognit
 
 ### Dataset
 
-The dataset used for training the gesture recognition models is an adapted version of the HaGRID dataset, containing 153,735 training images from HaGRID (Hand Gesture Recognition Image Dataset) modified for image classification instead of object detection. The dataset contains images of Hand Gestures being performed by different individuals under various lighting conditions and backgrounds. There are 19 labelled classes corresponding to different hand gestures, containing around 6900 images per class. The possible labels can be seen below:
+The dataset used for training the gesture recognition models is an adapted version of the HaGRID dataset, containing 153,735 training images from HaGRID (Hand Gesture Recognition Image Dataset) [1] modified for image classification instead of object detection. The dataset contains images of Hand Gestures being performed by different individuals under various lighting conditions and backgrounds. There are 19 labelled classes corresponding to different hand gestures, containing around 6900 images per class. The possible labels can be seen below:
 
 Gesture Classes:
 
 - call, dislike, fist, four, like, mute, no_gesture, ok, one, palm, peace, peace_inverted, rock, stop, stop_inverted, three, three2, two_up, two_up_inverted
 
-The dataset can be downloaded from the following link: [Hagrid Dataset for Classification](https://huggingface.co/datasets/cj-mills/hagrid-classification-512p-no-gesture-150k-zip) [1].
+The dataset can be downloaded from the following link: [Hagrid Dataset for Classification](https://huggingface.co/datasets/cj-mills/hagrid-classification-512p-no-gesture-150k-zip) [2].
 
 
 ### Data Preprocessing and Augmentation
@@ -255,10 +255,9 @@ Despite the successful implementation of the gesture recognition system, there a
 
 ## References <a name = "references"></a>
 
+[1] Alexander Kapitanov et Al. Original HaGRID Dataset https://github.com/hukenovs/hagrid
 
-[1] Christian Mills. Adapted HaGRID Dataset https://huggingface.co/datasets/cj-mills/hagrid-classification-512p-no-gesture-150k-zip
-
-[2] Alexander Kapitanov et Al. Original HaGRID Dataset https://github.com/hukenovs/hagrid
+[2] Christian Mills. Adapted HaGRID Dataset https://huggingface.co/datasets/cj-mills/hagrid-classification-512p-no-gesture-150k-zip
 
 [3] Valerio Ponzi et Al. A Real-time Hand Gesture Recognition System for Human-Computer and Human-Robot Interaction https://hdl.handle.net/11573/1683653
 
