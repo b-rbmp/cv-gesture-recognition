@@ -1,7 +1,7 @@
 # Real-Time Gesture Recognition
-Project for the Computer Vision 2023-2024 course at Sapienza
+5th Place, Best Poster Competition, UCL \& G-Research at the UCL Centre for Artificial Intelligence Showcase (London, UK)
 
-## Team
+## Authors
 
 | **Name** | **Linkedin** | **GitHub** |
 | :---: | :---: | :---: |
