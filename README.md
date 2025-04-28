@@ -1,5 +1,5 @@
 # Real-Time Gesture Recognition
-5th Place, Best Poster Competition, UCL \& G-Research at the UCL Centre for Artificial Intelligence Showcase (London, UK)
+5th Place, Best Poster Competition, UCL \& G-Research at the 2024 UCL Centre for Artificial Intelligence Showcase (London, UK)
 
 ## Authors
 
